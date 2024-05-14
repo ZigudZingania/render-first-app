@@ -4,12 +4,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
+
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.render('index');
 });
 
 app.get('/about', (req, res)=>{
-  res.send('This is about page.');
+  res.render('index', {person: 'Rohan'});
 })
 
 app.listen(PORT, () => {
